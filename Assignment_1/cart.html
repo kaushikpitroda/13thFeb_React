@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial;
+
+    }
+    thead td {
+        height:30px;
+        font-size: 16px;
+        background-color: #333;
+        color:#fff;
+        padding:10px;
+    }
+    tbody td{
+        padding:10px;
+        font-size: 14px;
+    }
+</style>
+<body>
+    <table width="100%" cellpadding="2" cellspacing="2">
+        <thead>
+            <tr>
+                <td><b>Product Info</b></td>
+                <td><b>Quantity</b></td>
+                <td align="center"><b>Price Per Unit</b></td>
+                <td align="center"><b>Price (Subtotal)</b></td>
+                <td align="center"><b>Action</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Product 1</td>
+                <td><input type="text" name="quantity1" value="1" maxlength="3" onkeyup="changePrice();" id="quantity1"></td>
+                <td align="center"><span>$29.99</span></td>
+                <td align="center"><span id="subtotal1"></span></td>
+                <td align="center"><input type="button" value="Remove"></td>
+            </tr>
+            <tr>
+                <td>Product 2</td>
+                <td><input type="text" name="quantity2" value="1" maxlength="3" onkeyup="changePrice();" id="quantity2"></td>
+                <td align="center"><span>$12.99</span></td>
+                <td align="center"><span id="subtotal2"></span></td>
+                <td align="center"><input type="button" value="Remove"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td align="right"><b>SUBTOTAL</b></td>
+                <td align="center"><span id="subtotal_val"></span></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function changePrice() {
+            let productPrice1 = 29.99;
+            let productPrice2 = 12.99;
+            let qty1 = document.getElementById("quantity1").value;
+            let qty2 = document.getElementById("quantity2").value;
+            let subtotal1 = productPrice1*qty1;
+            document.getElementById('subtotal1').innerHTML = '$'+subtotal1;
+            let subtotal2 = productPrice2*qty2;
+            document.getElementById('subtotal2').innerHTML = '$'+subtotal2;
+            var subtotal = subtotal1+subtotal2;
+            document.getElementById("subtotal_val").innerHTML = '$'+subtotal
+        }
+        changePrice();
+    </script>
+</body>
+</html>
